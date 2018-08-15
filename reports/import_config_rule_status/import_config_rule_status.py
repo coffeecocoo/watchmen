@@ -176,7 +176,7 @@ def import_config_rule_statuses(table_name, citizen_account, sts, dynamodb, time
         # If the config rule's source lambda arn matches the proxy lambda arn,
         # then it is a Watchmen rule
         if re.match(
-                r"arn:aws:lambda:ap-southeast-2:\d+:function:{}ProxyLambda".format(prefix),
+                "arn:aws:lambda:ap-southeast-2:\d+:function:{}ProxyLambda".format(prefix),
                 rule_lambda_arn
             ):
             rule_invocation_time, invocation_result = get_config_rule_invoke_success(config, rule_status["ConfigRuleName"])

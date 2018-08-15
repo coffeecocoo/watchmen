@@ -114,7 +114,7 @@ zip_files/
 *.retry
 
 *.cid
-
+*.sh
 ### PyCharm ###
 # Reference: https://intellij-support.jetbrains.com/hc/en-us/articles/206544839
 
