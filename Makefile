@@ -65,7 +65,7 @@ upload-watchmen-cf:
 deploy-watchmen-core:
 	ansible-playbook $(LOCATION_CORE)/watchmen_cloudformation/deploy_watchmen_core.yml -vvv \
 		-e 'PROFILE=default' \
-		-e 'REGION=ap-southeast-2' \
+		-e 'REGION=$(AWS_DEFAULT_REGION)' \
 		-e 'prefix=$(prefix)' \
 		-e 'BUCKET_NAME_CF=$(BUCKET_NAME_CF)' \
 		-e 'BUCKET_NAME_LAMBDA=$(BUCKET_NAME_LAMBDA)' \
@@ -81,7 +81,7 @@ deploy-watchmen-core-in-docker: build-docker-base-image ## Deploy watchmen core 
 		-e AWS_SESSION_TOKEN \
 		-e AWS_DEFAULT_REGION \
 		-e PROFILE=default \
-		-e REGION=ap-southeast-2 \
+		-e REGION=$(AWS_DEFAULT_REGION) \
 		-e prefix=$(prefix) \
 		-e BUCKET_NAME_CF=$(BUCKET_NAME_CF) \
 		-e BUCKET_NAME_LAMBDA=$(BUCKET_NAME_LAMBDA) \
@@ -93,7 +93,7 @@ deploy-watchmen-core-in-docker: build-docker-base-image ## Deploy watchmen core 
 deploy-watchmen-citizen-update:
 	ansible-playbook $(LOCATION_CORE)/watchmen_cloudformation/deploy_watchmen_citizen_update.yml -vvv \
 		-e 'PROFILE=default' \
-		-e 'REGION=ap-southeast-2' \
+		-e 'REGION=$(AWS_DEFAULT_REGION)' \
 		-e 'prefix=$(prefix)' \
 		-e 'BUCKET_NAME_CF=$(BUCKET_NAME_CF)' \
 		-e 'BUCKET_NAME_DISTRIBUTION=$(BUCKET_NAME_DISTRIBUTION)' \
@@ -109,7 +109,7 @@ deploy-watchmen-citizen-update-in-docker: build-docker-base-image ## Deploy watc
 		-e AWS_SESSION_TOKEN \
 		-e AWS_DEFAULT_REGION \
 		-e PROFILE=default \
-		-e REGION=ap-southeast-2 \
+		-e REGION=$(AWS_DEFAULT_REGION) \
 		-e BUCKET_NAME_CF=$(BUCKET_NAME_CF) \
 		-e BUCKET_NAME_DISTRIBUTION=$(BUCKET_NAME_DISTRIBUTION) \
 		-e BUCKET_NAME_LAMBDA=$(BUCKET_NAME_LAMBDA) \
@@ -121,7 +121,7 @@ deploy-watchmen-citizen-update-in-docker: build-docker-base-image ## Deploy watc
 deploy-watchmen-monitoring:
 	ansible-playbook $(LOCATION_CORE)/watchmen_cloudformation/deploy_watchmen_monitoring.yml -vvv \
 		-e 'PROFILE=default' \
-		-e 'REGION=ap-southeast-2' \
+		-e 'REGION=$(AWS_DEFAULT_REGION)' \
 		-e 'prefix=$(prefix)' \
 		-e 'BUCKET_NAME_CF=$(BUCKET_NAME_CF)' \
 		-e 'ENV=$(ENV)'
@@ -135,7 +135,7 @@ deploy-watchmen-monitoring-in-docker: build-docker-base-image ## Deploy watchmen
 		-e AWS_SESSION_TOKEN \
 		-e AWS_DEFAULT_REGION \
 		-e PROFILE=default \
-		-e REGION=ap-southeast-2 \
+		-e REGION=$(AWS_DEFAULT_REGION) \
 		-e BUCKET_NAME_CF=$(BUCKET_NAME_CF) \
 		-e ENV=$(ENV) \
 		-e prefix=$(prefix) \
@@ -145,7 +145,7 @@ deploy-watchmen-monitoring-in-docker: build-docker-base-image ## Deploy watchmen
 deploy-watchmen-reporting:
 	ansible-playbook $(LOCATION_CORE)/watchmen_cloudformation/deploy_watchmen_reporting.yml -vvv \
 		-e 'PROFILE=default' \
-		-e 'REGION=ap-southeast-2' \
+		-e 'REGION=$(AWS_DEFAULT_REGION)' \
 		-e 'prefix=$(prefix)' \
 		-e 'BUCKET_NAME_CF=$(BUCKET_NAME_CF)' \
 		-e 'BUCKET_NAME_LAMBDA=$(BUCKET_NAME_LAMBDA)' \
@@ -166,7 +166,7 @@ deploy-watchmen-reporting-in-docker: build-docker-base-image ## Deploy watchmen 
 		-e AWS_SESSION_TOKEN \
 		-e AWS_DEFAULT_REGION \
 		-e PROFILE=default \
-		-e REGION=ap-southeast-2 \
+		-e REGION=$(AWS_DEFAULT_REGION) \
 		-e BUCKET_NAME_CF=$(BUCKET_NAME_CF) \
 		-e BUCKET_NAME_LAMBDA=$(BUCKET_NAME_LAMBDA) \
 		-e BUCKET_NAME_REPORT=$(BUCKET_NAME_REPORT) \
@@ -178,7 +178,7 @@ deploy-watchmen-reporting-in-docker: build-docker-base-image ## Deploy watchmen 
 deploy-watchmen-elastic-search:
 	ansible-playbook $(LOCATION_CORE)/watchmen_cloudformation/deploy_watchmen_elastic_search.yml -vvv \
 		-e 'PROFILE=default' \
-		-e 'REGION=ap-southeast-2' \
+		-e 'REGION=$(AWS_DEFAULT_REGION)' \
 		-e 'prefix=$(prefix)' \
 		-e 'BUCKET_NAME_CF=$(BUCKET_NAME_CF)' \
 		-e 'BUCKET_NAME_LAMBDA=$(BUCKET_NAME_LAMBDA)' \
@@ -197,7 +197,7 @@ deploy-watchmen-elastic-search-in-docker: build-docker-base-image ## Deploy watc
 		-e AWS_SESSION_TOKEN \
 		-e AWS_DEFAULT_REGION \
 		-e PROFILE=default \
-		-e REGION=ap-southeast-2 \
+		-e REGION=$(AWS_DEFAULT_REGION) \
 		-e prefix=$(prefix) \
 		-e BUCKET_NAME_CF=$(BUCKET_NAME_CF) \
 		-e BUCKET_NAME_LAMBDA=$(BUCKET_NAME_LAMBDA) \
